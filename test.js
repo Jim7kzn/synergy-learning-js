@@ -1,33 +1,33 @@
-let i = 0;
-let cStr = 'Hello, world!';
-
-while (i < cStr.length) {
-	if (i % 2 === 0) {
-		console.log(cStr[i] + cStr[i + 1]);
-	}
-	i++;
+function changeVal() {
+	cStr = 'Я люблю тебя, Жизнь!';
 }
 
-console.log('--- демонстрация однократного выполнения do...while')
-console.log('i = ' + i + ', cStr.length = ' + cStr.length + ', i < cStr.length = ' + (i < cStr.length));
- do {
-	console.log('а вывод идёт!');
-	console.log(cStr[i] + cStr[i + 1]);
-	i++;
-} while (i < cStr.length)
-
-console.log('--------')
-i = 0;
-do {
-	if (i % 2 === 1) {
-		console.log(cStr[i] + cStr[i + 1]);
-	}
-	i++;
-} while (i < cStr.length - 1)
-
-console.log('--------')
-for (i=0; i < cStr.length; i++) {
-	if (i % 2 === 0) {
-		console.log(cStr[i] + cStr[i + 1]);
-	}
+function myPow(a = 0, b = 1) {
+	return a ** b;
 }
+
+function myFactorial(x= 1) {
+	let result = 1;
+	let i = 1;
+	do {
+		result *= i;
+		i++
+	} while (i <= x)
+	return result;
+}
+
+
+let cStr = 'I love this game!';
+
+console.log(cStr);
+changeVal();
+console.log(cStr);
+
+console.log('-------');
+console.log(myPow(7,3));
+console.log(myPow(11,4));
+
+console.log('-------');
+console.log(myFactorial(2));
+console.log(myFactorial(3));
+console.log(myFactorial(6));
