@@ -1,17 +1,33 @@
-let firstNum = 7;
-let secondNum = -3;
-firstNum = --firstNum;
-resNum = --secondNum;
-sumNum = firstNum ** (3 - 1) + resNum;
-console.log(sumNum);
+let i = 0;
+let cStr = 'Hello, world!';
 
-let myAge = 58;
-if (myAge === 33) {
-	console.log('Вы угадали!!!')
+while (i < cStr.length) {
+	if (i % 2 === 0) {
+		console.log(cStr[i] + cStr[i + 1]);
+	}
+	i++;
 }
-else if (myAge > 33) {
-	console.log('Увы... время неумолимо.')
-}
-else {
-	console.log('Вы мне льстите!')
+
+console.log('--- демонстрация однократного выполнения do...while')
+console.log('i = ' + i + ', cStr.length = ' + cStr.length + ', i < cStr.length = ' + (i < cStr.length));
+ do {
+	console.log('а вывод идёт!');
+	console.log(cStr[i] + cStr[i + 1]);
+	i++;
+} while (i < cStr.length)
+
+console.log('--------')
+i = 0;
+do {
+	if (i % 2 === 1) {
+		console.log(cStr[i] + cStr[i + 1]);
+	}
+	i++;
+} while (i < cStr.length - 1)
+
+console.log('--------')
+for (i=0; i < cStr.length; i++) {
+	if (i % 2 === 0) {
+		console.log(cStr[i] + cStr[i + 1]);
+	}
 }
