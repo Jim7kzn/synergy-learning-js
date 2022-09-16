@@ -1,38 +1,39 @@
-let warehouse = {
-	sportsNutrition: {
-		proteins: 10,
-		aminoAcids: 15,
-		fatBurners: 5,
-	},
-	dumbbells: 20,
-	balls: 20,
-}
+// let car = {
+// 	type: 'Toyota',
+// 	model: 'Raum',
+// 	netto: 700,
+// 	maxSpeed: 170,
+// 	aboutCar: function () {
+// 		return 'Это автомобиль';
+// 	},
+// };
 
-warehouse.vitamins = 30;
+// let car = {
+// 	type: 'Toyota',
+// 	model: 'Raum',
+// 	netto: 700,
+// 	maxSpeed: 170,
+// 	aboutCar: function () {
+// 		return 'Это автомобиль марки ' + this.type + ' модель ' + this.model;
+// 	}
+// }
 
-console.log(warehouse);
-
-console.log(warehouse.balls);
-
-warehouse.sportsNutrition.fatBurners = 0;
-console.log(warehouse);
-delete warehouse.sportsNutrition.fatBurners;
-console.log(warehouse);
-
-console.log('proteins' in warehouse.sportsNutrition);
-
-let sum = 0;
-for (key in warehouse) {
-	if (typeof warehouse[key] === 'object') {
-		let sumObj = 0;
-		for (keyObj in warehouse[key]) {
-			sumObj += warehouse[key][keyObj];
-		}
-		sum += sumObj;
-
-	} else {
-		sum += warehouse[key];
+function Cars(type = 'Toyota',
+			  model = 'Raum',
+			  netto = 700,
+			  maxSpeed = 170) {
+	this.type = type;
+	this.model = model;
+	this.netto = netto;
+	this.maxSpeed = maxSpeed;
+	this.aboutCar = function () {
+		return 'Это автомобиль \"' + this.type + '\" модели \"' + this.model +
+			'\".\nВес - ' + this.netto + 'кг, максимальная скорость - ' + this.maxSpeed + ' км/ч.\n';
 	}
 }
-console.log(warehouse);
-console.log(sum);
+
+let newCar1 = new Cars();
+let newCar2 = new Cars('Audi', 'Q7', 1000, 220);
+
+console.log(newCar1.aboutCar());
+console.log(newCar2.aboutCar());
