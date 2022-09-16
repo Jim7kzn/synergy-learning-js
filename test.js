@@ -1,33 +1,17 @@
-let myMap = new Map();
-let jim7 = { name: "Jim7" };
+let now = new Date();
+console.log( now ); // показывает текущие дату и время
 
-myMap.set("1", "str");			// строка в качестве ключа
-myMap.set(1, "num");			// цифра как ключ
-myMap.set(true, "bool");		// булево значение как ключ
-myMap.set(jim7, 73);			// объект как ключ
+// 0 соответствует 01.01.1970 UTC+0
+let Jan01_1970 = new Date(0);
+console.log( Jan01_1970 );
 
-// console.log(myMap.get(1));
-// console.log(myMap.get("1"));
-// console.log(myMap.get(jim7));
-//
-// console.log(myMap);
-// console.log(myMap.size);		// 4
+// теперь добавим 24 часа и получим 02.01.1970 UTC+0
+let Jan02_1970 = new Date(24 * 3600 * 1000);
+console.log( Jan02_1970 );
 
-let mySet = new Set();
-let name1 = {name: 'JimB', age: 40}
-let name2 = {name: 'Anna', age: 23}
-let name3 = {name: 'Helga', age: 30}
-let name4 = {name: 'JimB', age: 44}
+// 31 декабря 1969 года
+let Dec31_1969 = new Date(-24 * 3600 * 1000);
+console.log( Dec31_1969 );
 
-mySet.add(23);
-mySet.add(1);
-mySet.add('23');
-mySet.add('23232323');
-mySet.add(name1);
-mySet.add(name2);
-mySet.add(name3);
-mySet.add(name4);
-mySet.add(name3);
-
-console.log(mySet);
-
+let date = new Date("2022-09-16");
+console.log(date);
