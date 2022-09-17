@@ -1,12 +1,16 @@
-function first(){
-	// Как будто бы запрос к API
-	setTimeout( function(){
-		console.log(1);
-	}, 500 );
-}
-function second(){
-	console.log(2);
-}
+// var promise = new Promise(function(resolve, reject) {
+// 	// Эта функция будет вызвана автоматически
+//
+// 	// В ней можно делать любые асинхронные операции,
+// 	// А когда они завершатся — нужно вызвать одно из:
+// 	// resolve(результат) при успешном выполнении
+// 	// reject(ошибка) при ошибке
+// })
 
-first();
-second();
+let promise = new Promise(function(resolve, reject) {
+	resolve(1);
+
+	setTimeout(() => resolve(2), 1000);
+});
+
+promise.then(alert);
