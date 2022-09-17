@@ -1,35 +1,24 @@
-let car = {
-	model: "Toyota",
-	tankCapacity: 50,
-	_petrolNow: 0,
+class NewClas {
+	constructor(val1 = 'defaultValue1', val2= 'defaultValue2') {
+		this.property1 = val1;
+		this.property2 = val2;
+	}
 
-	get petrolNow() {
-		return this._petrolNow;
-	},
+	method1() {console.log(`${this.property1} и ---`)}
 
-	set petrolNow(nVal) {
-		if ((nVal + this._petrolNow) > this.tankCapacity) {
-			console.log('Слишком много бензина!');
-		} else {
-			this._petrolNow += nVal;
-		}
-	},
-};
+	method2() {console.log(`--- и ${this.property2}`)}
 
-console.log(car.petrolNow);
+	method3() {console.log(`${this.property1} и ${this.property2}`)}
+}
 
-console.log('--- добавляем 55л');
-car.petrolNow = 55;
-console.log(car.petrolNow);
+let newObj1 = new NewClas();
+console.log(newObj1);
+newObj1.method1();
+newObj1.method2();
+newObj1.method3();
 
-console.log('--- добавляем 25л');
-car.petrolNow = 25;
-console.log(car.petrolNow);
-
-console.log('--- добавляем 30л');
-car.petrolNow = 30;
-console.log(car.petrolNow);
-
-console.log('--- добавляем 25л');
-car.petrolNow = 25;
-console.log(car.petrolNow);
+let newObj2 = new NewClas('Объект 2');
+console.log(newObj2);
+newObj2.method1();
+newObj2.method2();
+newObj2.method3();
