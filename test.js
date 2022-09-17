@@ -1,17 +1,28 @@
-let now = new Date();
-console.log( now ); // показывает текущие дату и время
+let car = {
+	type: 'Toyota',
+	model: 'Raum',
+	netto: 700,
+	maxSpeed: 170,
+	aboutCar: function () {
+		return 'Это автомобиль марки ' + this.type + ' модель ' + this.model;
+	},
+};
 
-// 0 соответствует 01.01.1970 UTC+0
-let Jan01_1970 = new Date(0);
-console.log( Jan01_1970 );
+console.log('-------\n', car);
+let strJson = JSON.stringify(car);
+console.log(strJson, '\n-------');
 
-// теперь добавим 24 часа и получим 02.01.1970 UTC+0
-let Jan02_1970 = new Date(24 * 3600 * 1000);
-console.log( Jan02_1970 );
+let objJson = JSON.parse(strJson);
+console.log(objJson, '\n-------');
 
-// 31 декабря 1969 года
-let Dec31_1969 = new Date(-24 * 3600 * 1000);
-console.log( Dec31_1969 );
+let arrExample = {
+	object: {param1: 'val1', param2: 'val2'},
+	array: ['Один', 2, 'Три', 4],
+	string: 'Строка',
+	number: 73,
+	bool: true,
+	null: null,
+};
 
-let date = new Date("2022-09-16");
-console.log(date);
+strJson = JSON.stringify(arrExample);
+console.log(strJson);
