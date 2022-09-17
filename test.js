@@ -1,28 +1,42 @@
-let car = {
-	type: 'Toyota',
-	model: 'Raum',
-	netto: 700,
-	maxSpeed: 170,
-	aboutCar: function () {
-		return 'Это автомобиль марки ' + this.type + ' модель ' + this.model;
-	},
-};
+function expIteration(nVal = 1, nDegree = 0) {
+	if (nVal === 0 && nDegree === 0) return null;
+	if (nDegree === 0) return 1;
+	let res = 1;
 
-console.log('-------\n', car);
-let strJson = JSON.stringify(car);
-console.log(strJson, '\n-------');
+	do {
+		res *= nVal;
+		nDegree--;
+	} while (nDegree > 0)
+	return res;
+}
 
-let objJson = JSON.parse(strJson);
-console.log(objJson, '\n-------');
+function expRecursion(nVal = 1, nDegree = 0) {
+	if (nVal === 0 && nDegree === 0) return null;
+	if (nDegree === 0) return 1;
+	return nVal * (nDegree === 2 ? nVal : expRecursion(nVal, nDegree - 1));
+}
 
-let arrExample = {
-	object: {param1: 'val1', param2: 'val2'},
-	array: ['Один', 2, 'Три', 4],
-	string: 'Строка',
-	number: 73,
-	bool: true,
-	null: null,
-};
+function getFibonachi(nHow = 2) {
+	if (nHow < 0) return false;
+	switch (nHow) {
+		case 0:
+			return 0;
+		case 1:
+			return 1;
+		default:
+			return getFibonachi(nHow - 1) + getFibonachi(nHow - 2);
+	}
+}
 
-strJson = JSON.stringify(arrExample);
-console.log(strJson);
+function rowFibonachi(howElements = 2) {
+	if (howElements < 2) howElements = 2;
+	let resArray = [0, 1];
+	for (let i = 3; i <= howElements; i++) resArray[i - 1] = getFibonachi(i);
+	return resArray;
+}
+
+console.log(expIteration(3, 7));
+console.log(expRecursion(3, 7));
+
+rowF = rowFibonachi(15);
+console.log(rowF)
