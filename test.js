@@ -1,22 +1,35 @@
-// function ask(question, yes, no) {
-// 	if (confirm(question)) yes()
-// 	else no();
-// }
-//
-// ask('Вы согласны?',
-// 	() => {alert('Вы согласились!');},
-// 	() => {alert('Вы отказались!');},
-// 	);
+let car = {
+	model: "Toyota",
+	tankCapacity: 50,
+	_petrolNow: 0,
 
-let vehicleFleet = {
-	title: "Автопарк",
-	cars: ["Toyota", "Audi", "Mercedes", "Opel",],
+	get petrolNow() {
+		return this._petrolNow;
+	},
 
-	showList() {
-		this.cars.forEach(
-			(cars) => console.log(this.title + ': ' + cars)
-		);
-	}
+	set petrolNow(nVal) {
+		if ((nVal + this._petrolNow) > this.tankCapacity) {
+			console.log('Слишком много бензина!');
+		} else {
+			this._petrolNow += nVal;
+		}
+	},
 };
 
-vehicleFleet.showList();
+console.log(car.petrolNow);
+
+console.log('--- добавляем 55л');
+car.petrolNow = 55;
+console.log(car.petrolNow);
+
+console.log('--- добавляем 25л');
+car.petrolNow = 25;
+console.log(car.petrolNow);
+
+console.log('--- добавляем 30л');
+car.petrolNow = 30;
+console.log(car.petrolNow);
+
+console.log('--- добавляем 25л');
+car.petrolNow = 25;
+console.log(car.petrolNow);
