@@ -1,11 +1,10 @@
-async function f() {
-
-	let promise = new Promise((resolve, reject) => {
-		setTimeout(() => resolve("готово!"), 1000)
-	});
-	let result = await promise; // будет ждать, пока промис не выполнится (*)
-
-	console.log(result); // "готово!"
+// 📁 sayLike.js
+export function sayLike(user) {
+	alert(`I like ${user}!`);
 }
 
-f();
+// 📁 main.js
+import {sayLike} from './sayLike.js';
+
+alert(sayLike);
+sayLike('Javascript');
